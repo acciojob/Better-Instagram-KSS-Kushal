@@ -26,3 +26,11 @@ function swapEle(start, end) {
     // Replace end with temp (original start)
     end.parentNode.replaceChild(temp.firstChild, end);
 }
+
+it('should have 6 draggable elements', () => {
+  cy.visit('http://localhost:3000') // replace with your page's URL
+  cy.wait(5000) // wait for 5 seconds
+  for (let index = 1; index <= 6; index++) {
+    cy.get(`#div${index}`).should('have.length', 1)
+  }
+})
